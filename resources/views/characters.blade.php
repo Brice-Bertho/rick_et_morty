@@ -169,16 +169,34 @@
         display:flex;
     }
 
-    .button {
+    .buttons {
         margin: 20px;
         text-align: center;
     }
+
+    a.button{
+        display:inline-block;
+        padding:0.3em 1.2em;
+        margin:0 0.3em 0.3em 0;
+        border-radius:2em;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Roboto',sans-serif;
+        font-weight:300;
+        color:#FFFFFF;
+        background-color:#4eb5f1;
+        text-align:center;
+        transition: all 0.2s;
+    }
+    a.button:hover{
+        background-color:#4095c6;
+    }
 </style>
-<div class="button">
-    <a href="{{url('/')}}">First page</a>
-    <a href="{{url('/previous', ['id' => $idPrevPage])}}">Previous page</a>
-    <a href="{{url('/next', ['id' => $idNextPage])}}">Next page</a>
-    <a href="{{url('/lastpage')}}">Last page</a>
+<div class="buttons">
+    <a class="button" href="{{url('/')}}">First page</a>
+    <a class="button" href="{{url('/previous', ['id' => $idPrevPage])}}">Previous page</a>
+    <a class="button" href="{{url('/next', ['id' => $idNextPage])}}">Next page</a>
+    <a class="button" href="{{url('/lastpage')}}">Last page</a>
 </div>
 
 <div class="test">
