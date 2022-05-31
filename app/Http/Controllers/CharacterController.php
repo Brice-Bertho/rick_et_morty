@@ -13,9 +13,6 @@ class CharacterController extends Controller
         $characters = $response['results'];
         $idNextPage = substr($response['info']['next'], 47, 1);
         $idPrevPage = substr($response['info']['prev'], 47, 1);
-        print_r($response['info']['next']);
-        print_r($idNextPage);
-        print_r($idPrevPage);
         return view('characters', [
             'characters' => $characters,
             'idNextPage' => $idNextPage,
@@ -40,10 +37,8 @@ class CharacterController extends Controller
     public function lastpage() {
         $response = Http::get('https://rickandmortyapi.com/api/character/?page=42');
         $characters = $response['results'];
-        $idNextPage = substr($response['info']['next'], 47, 1);
-        $idPrevPage = substr($response['info']['prev'], 47, 1);
-        print_r($idNextPage);
-        print_r($idPrevPage);
+        $idNextPage = 42;
+        $idPrevPage = substr($response['info']['prev'], 48, 2);
         return view('characters', [
             'characters' => $characters,
             'idNextPage' => $idNextPage,
@@ -61,9 +56,6 @@ class CharacterController extends Controller
             $idNextPage = substr($response['info']['next'], 48, 2);
             $idPrevPage = substr($response['info']['prev'], 48, 2);
         }
-
-        print_r($idNextPage);
-        print_r($idPrevPage);
         return view('characters', [
             'characters' => $characters,
             'idNextPage' => $idNextPage,
@@ -81,8 +73,6 @@ class CharacterController extends Controller
             $idNextPage = substr($response['info']['next'], 48, 2);
             $idPrevPage = substr($response['info']['prev'], 48, 2);
         }
-        print_r($idNextPage);
-        print_r($idPrevPage);
         return view('characters', [
             'characters' => $characters,
             'idNextPage' => $idNextPage,
