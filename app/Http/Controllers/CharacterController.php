@@ -49,7 +49,11 @@ class CharacterController extends Controller
     public function previous($id) {
         $response = Http::get('https://rickandmortyapi.com/api/character/?page='.$id);
         $characters = $response['results'];
-        if ($id < 9) {
+
+        if ($id == 1) {
+            $idNextPage = substr($response['info']['next'], 48, 1);
+            $idPrevPage = 1;
+        }else if ($id < 9) {
             $idNextPage = substr($response['info']['next'], 48, 1);
             $idPrevPage = substr($response['info']['prev'], 48, 1);
         } else {
